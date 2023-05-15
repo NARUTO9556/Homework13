@@ -21,15 +21,18 @@ public class Author {
         if (this == j) {
             return true;
         }
-        if (!(j instanceof Author)) {
+        if (j.getClass() != getClass()) {
             return false;
         }
         Author author = (Author) j;
-        return getAuthorName().equals(author.getAuthorName());
+        if (j == null || j.getClass() != getClass()) {
+            return false;
+        }
+        return Objects.equals(getAuthorName(), author.getAuthorName());
     }
 
     @Override
     public int hashCode() {
-        return getAuthorName().hashCode();
+        return Objects.hash(authorName);
     }
 }

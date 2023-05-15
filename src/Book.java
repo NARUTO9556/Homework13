@@ -37,24 +37,20 @@ public class Book {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Book)) {
+        if (o.getClass() != getClass()) {
             return false;
         }
         Book book = (Book) o;
-        if (getPublishingYear() != book.getPublishingYear()) {
+        if (o == null || o.getClass() != getClass()) {
             return false;
         }
-        if (!getNameBook().equals(book.getNameBook())) {
-            return false;
-        }
-        return getAuthor().equals(book.getAuthor());
+        return publishingYear == book.publishingYear
+                && Objects.equals(nameBook, book.nameBook)
+                && Objects.equals(author, book.author);
     }
 
     @Override
     public int hashCode() {
-        int result = getNameBook().hashCode();
-        result = 31 * result + getPublishingYear();
-        result = 31 * result + getAuthor().hashCode();
-        return result;
+        return Objects.hash(nameBook, publishingYear, author);
     }
 }
