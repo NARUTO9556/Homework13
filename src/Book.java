@@ -34,13 +34,13 @@ public class Book {
 
     @Override
     public boolean equals(Object o) {
-        Book book = (Book) o;
         if (this == o) {
             return true;
         }
         if (o == null || o.getClass() != getClass()) {
             return false;
         }
+        Book book = (Book) o;
         return publishingYear == book.publishingYear
                 && Objects.equals(nameBook, book.nameBook)
                 && Objects.equals(author, book.author);
