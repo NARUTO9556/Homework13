@@ -18,13 +18,10 @@ public class Author {
 
     @Override
     public boolean equals(Object j) {
+        Author author = (Author) j;
         if (this == j) {
             return true;
         }
-        if (j.getClass() != getClass()) {
-            return false;
-        }
-        Author author = (Author) j;
         if (j == null || j.getClass() != getClass()) {
             return false;
         }
